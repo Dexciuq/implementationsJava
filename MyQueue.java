@@ -12,7 +12,7 @@ public class MyQueue<T extends Comparable<T>> {
             System.out.println("MyQueue is empty");
             return null;
         }
-        return list.get(size() - 1);
+        return list.get(0);
     }
 
     public T enqueue(T item){
