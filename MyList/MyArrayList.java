@@ -126,4 +126,17 @@ public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
         }
         return false;
     }
+
+    public void swap(int indexI, int indexJ){
+        T temp = (T) arr[indexI];
+        arr[indexI] = arr[indexJ];
+        arr[indexJ] = temp;
+    }
+
+    public void printAll(){
+        for (int i = 0; i < size(); ++i)  {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
 }
