@@ -1,7 +1,8 @@
 import MyList.*;
+import java.util.Iterator;
 
-public class MyQueue<T extends Comparable<T>> {
-    private final MyList<T> list;
+public class MyQueue<T extends Comparable<T>> implements Iterator<T> {
+    private MyLinkedList<T> list;
 
     public MyQueue() {
         list = new MyLinkedList<T>();
@@ -12,7 +13,7 @@ public class MyQueue<T extends Comparable<T>> {
             System.out.println("MyQueue is empty");
             return null;
         }
-        return list.get(0);
+        return list.get(size() - 1);
     }
 
     public T enqueue(T item){
@@ -34,5 +35,15 @@ public class MyQueue<T extends Comparable<T>> {
 
     public boolean isEmpty(){
         return size() == 0;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return !isEmpty();
+    }
+
+    @Override
+    public T next() {
+        return dequeue();
     }
 }
